@@ -1,169 +1,811 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Samwel Debbarma | MTech Scholar & Biotechnology Researcher</title>
+  <title>SAMWEL DEBBARMA | MTech Scholar at IIT Guwahati</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            academic: {
+              navy: '#0b192c',
+              dark: '#1e293b',
+              accent: '#0284c7',
+              accentHover: '#0369a1',
+              lightBg: '#f8fafc',
+              cardBg: '#ffffff',
+              border: '#e2e8f0',
+              text: '#334155',
+              heading: '#0f172a'
+            }
+          },
+          fontFamily: {
+            serif: ['Georgia', 'Cambria', 'serif'],
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            display: ['Oswald', 'Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <!-- FontAwesome Icons & Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+  
   <style>
-    :root {
-      --primary: #0f172a;
-      --accent: #2563eb;
-      --bg: #f8fafc;
-      --card-bg: #ffffff;
-      --text: #334155;
-      --border: #e2e8f0;
-    }
-    
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      line-height: 1.6;
-      color: var(--text);
-      background: var(--bg);
-      padding: 2rem 1rem;
+      font-family: 'Inter', sans-serif;
+      color: #334155;
+      background-color: #f8fafc;
     }
 
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      background: var(--card-bg);
-      padding: 2.5rem;
-      border-radius: 12px;
+    .font-display {
+      font-family: 'Oswald', sans-serif;
+    }
+
+    /* Hero Background Image with Darkness Overlay for Contrast */
+    .hero-bg {
+      background: linear-gradient(to bottom, rgba(11, 25, 44, 0.45), rgba(11, 25, 44, 0.75)), 
+                  url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+    }
+
+    /* Reference Style Glass Navbar */
+    .academic-nav {
+      background-color: rgba(11, 25, 44, 0.92);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .nav-btn {
+      position: relative;
+      letter-spacing: 0.05em;
+      transition: all 0.2s ease;
+    }
+
+    .nav-btn::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: #38bdf8;
+      transition: width 0.25s ease-in-out;
+    }
+
+    .nav-btn:hover::after, .nav-btn.active::after {
+      width: 100%;
+    }
+
+    /* Card Shadow & Clean Academic Styling */
+    .academic-card {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      transition: all 0.3s ease;
     }
 
-    header {
-      margin-bottom: 2rem;
-      border-bottom: 2px solid var(--border);
-      padding-bottom: 1.5rem;
-    }
-
-    h1 {
-      color: var(--primary);
-      font-size: 2.25rem;
-      font-weight: 700;
-      letter-spacing: -0.025em;
-    }
-
-    .subtitle {
-      color: var(--accent);
-      font-weight: 600;
-      font-size: 1.1rem;
-      margin-top: 0.25rem;
-    }
-
-    .institution {
-      color: #64748b;
-      font-size: 0.95rem;
-    }
-
-    section {
-      margin-bottom: 2rem;
-    }
-
-    h2 {
-      color: var(--primary);
-      font-size: 1.35rem;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 0.4rem;
-      margin-bottom: 1rem;
-    }
-
-    p {
-      margin-bottom: 1rem;
-    }
-
-    ul {
-      padding-left: 1.25rem;
-      margin-bottom: 1rem;
-    }
-
-    li {
-      margin-bottom: 0.5rem;
-    }
-
-    .timeline-item {
-      margin-bottom: 1.25rem;
-    }
-
-    .timeline-title {
-      font-weight: 600;
-      color: var(--primary);
-    }
-
-    .timeline-meta {
-      font-size: 0.875rem;
-      color: #64748b;
-    }
-
-    footer {
-      margin-top: 3rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
-      font-size: 0.9rem;
-      color: #64748b;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
+    .academic-card:hover {
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+      border-color: #cbd5e1;
     }
   </style>
 </head>
-<body>
+<body class="min-h-screen flex flex-col selection:bg-sky-500 selection:text-white">
 
-  <div class="container">
-    <header>
-      <h1>Samwel Debbarma</h1>
-      <div class="subtitle">MTech Scholar in Biotechnology</div>
-      <div class="institution">Indian Institute of Technology Guwahati</div>
-    </header>
+  <!-- STICKY TOP NAVIGATION BAR -->
+  <header class="fixed top-0 left-0 right-0 z-50 academic-nav border-b border-slate-800 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo / Name -->
+      <a href="#hero" class="flex flex-col group">
+        <span class="font-display text-xl sm:text-2xl font-bold tracking-wider text-white group-hover:text-sky-400 transition-colors uppercase">
+          SAMWEL DEBBARMA
+        </span>
+        <span class="text-[10px] tracking-widest text-slate-300 font-semibold uppercase">IIT GUWAHATI • BIOTECHNOLOGY</span>
+      </a>
 
-    <section id="about">
-      <h2>About Me</h2>
-      <p>I am an MTech scholar in Biotechnology at IIT Guwahati with a focus on bio-formulations, dryland afforestation, and applied computational biology. My research centers on sustainable biotechnological solutions to ecological and environmental challenges.</p>
-    </section>
+      <!-- Desktop Nav Links -->
+      <nav class="hidden lg:flex items-center space-x-6 text-xs font-bold uppercase tracking-wider text-slate-200">
+        <a href="#hero" class="nav-btn active hover:text-sky-400 py-1">Home</a>
+        <a href="#about" class="nav-btn hover:text-sky-400 py-1">CV + About</a>
+        <a href="#research" class="nav-btn hover:text-sky-400 py-1">Research</a>
+        <a href="#milestones" class="nav-btn hover:text-sky-400 py-1">Publications & Milestones</a>
+        <a href="#travels" class="nav-btn hover:text-sky-400 py-1">Travels & Perspectives</a>
+        <a href="#outreach" class="nav-btn hover:text-sky-400 py-1">Outreach</a>
+        <a href="#contact" class="nav-btn hover:text-sky-400 py-1">Connect</a>
+      </nav>
 
-    <section id="research">
-      <h2>Research Focus</h2>
-      <ul>
-        <li><strong>Plant Growth-Promoting Rhizobacteria (PGPR) & Biostimulants:</strong> Formulation and bio-evaluation for enhanced soil and crop health.</li>
-        <li><strong>Dryland Afforestation:</strong> Application of hydrogel matrices and biostimulants for moisture retention and eco-restoration.</li>
-        <li><strong>Computational Biology & Applied Biotechnology:</strong> Protein structure modeling, bioinformatics, and biological data analysis.</li>
-      </ul>
-    </section>
-
-    <section id="education">
-      <h2>Education</h2>
-      <div class="timeline-item">
-        <div class="timeline-title">M.Tech in Biotechnology</div>
-        <div class="timeline-meta">Indian Institute of Technology, Guwahati | 2025 – 2027</div>
+      <!-- Action Button (CV Modal) -->
+      <div class="hidden lg:flex items-center space-x-3">
+        <button onclick="openCvModal()" class="px-4 py-2 text-xs font-bold uppercase tracking-wider rounded border border-sky-400 text-sky-300 hover:bg-sky-400 hover:text-slate-900 transition-all flex items-center gap-2 shadow-sm">
+          <i class="fa-solid fa-file-pdf"></i> View CV
+        </button>
       </div>
-      <div class="timeline-item">
-        <div class="timeline-title">B.Tech in Biotechnology</div>
-        <div class="timeline-meta">National Institute of Technology, Agartala | 2021 – 2025</div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-btn" aria-label="Toggle Mobile Navigation" class="lg:hidden p-2 rounded text-slate-200 hover:text-white hover:bg-slate-800 focus:outline-none">
+        <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-slate-900 border-t border-slate-800 px-4 pt-3 pb-6 space-y-3 text-xs font-bold uppercase tracking-wider">
+      <a href="#hero" class="mobile-link block px-3 py-2 rounded text-slate-200 hover:bg-slate-800 hover:text-sky-400">Home</a>
+      <a href="#about" class="mobile-link block px-3 py-2 rounded text-slate-200 hover:bg-slate-800 hover:text-sky-400">CV + About</a>
+      <a href="#research" class="mobile-link block px-3 py-2 rounded text-slate-200 hover:bg-slate-800 hover:text-sky-400">Research</a>
+      <a href="#milestones" class="mobile-link block px-3 py-2 rounded text-slate-200 hover:bg-slate-800 hover:text-sky-400">Publications & Milestones</a>
+      <a href="#travels" class="mobile-link block px-3 py-2 rounded text-slate-200 hover:bg-slate-800 hover:text-sky-400">Travels & Perspectives</a>
+      <a href="#outreach" class="mobile-link block px-3 py-2 rounded text-slate-200 hover:bg-slate-800 hover:text-sky-400">Outreach</a>
+      <a href="#contact" class="mobile-link block px-3 py-2 rounded text-slate-200 hover:bg-slate-800 hover:text-sky-400">Connect</a>
+      <button onclick="openCvModal()" class="w-full text-center mt-3 px-4 py-2.5 rounded bg-sky-500 text-slate-950 font-extrabold uppercase tracking-wider text-xs">
+        View CV Summary
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT WRAPPER -->
+  <main class="flex-grow">
+
+    <!-- HERO SECTION (MATCHING REFERENCE IMAGE FULL-WIDTH BANNER) -->
+    <section id="hero" class="hero-bg min-h-screen flex items-center justify-center pt-20 px-4 sm:px-6 lg:px-8 text-center text-white relative">
+      <div class="max-w-5xl mx-auto space-y-6 py-20">
+        
+        <div class="inline-block px-4 py-1.5 rounded-full bg-sky-500/20 border border-sky-400/40 backdrop-blur-md text-sky-300 text-xs font-bold tracking-widest uppercase mb-2">
+          INDIAN INSTITUTE OF TECHNOLOGY GUWAHATI
+        </div>
+
+        <h1 class="font-display text-5xl sm:text-7xl lg:text-8xl font-black tracking-wider uppercase leading-none drop-shadow-md">
+          SAMWEL DEBBARMA
+        </h1>
+
+        <p class="font-display text-xl sm:text-2xl lg:text-3xl font-semibold tracking-widest text-slate-200 uppercase max-w-4xl mx-auto leading-tight drop-shadow-sm">
+          MTECH Biotechnology AT IIT GUWAHATI • BIOTECHNOLOGY & ECOLOGICAL RESTORATION
+        </p>
+
+        <p class="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto font-normal leading-relaxed">
+          Specializing in plant tissue culture, dryland afforestation, swellable hydrogel formulations, PGPR bio-stimulants, and computational biology workflows.
+        </p>
+
+        <div class="pt-6 flex flex-wrap justify-center gap-4">
+          <a href="#research" class="px-8 py-3.5 rounded bg-sky-500 hover:bg-sky-600 text-slate-950 font-display text-lg font-bold tracking-wider uppercase transition-all shadow-lg shadow-sky-500/30 flex items-center gap-2">
+            Explore Research <i class="fa-solid fa-arrow-down text-sm"></i>
+          </a>
+          <a href="#about" class="px-8 py-3.5 rounded bg-slate-900/80 hover:bg-slate-900 text-white font-display text-lg font-bold tracking-wider uppercase border border-slate-700 backdrop-blur-md transition-all flex items-center gap-2">
+            CV & Bio <i class="fa-solid fa-user-graduate text-sm"></i>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-slate-400 text-xs uppercase tracking-widest animate-bounce hidden sm:flex flex-col items-center gap-1">
+        <span>Scroll Down</span>
+        <i class="fa-solid fa-chevron-down"></i>
       </div>
     </section>
 
-    <footer>
-      <div>&copy; 2026 Samwel Debbarma</div>
-      <div>Contact: <a href="mailto:contact@samwel.in">contact@samwel.in</a></div>
-    </footer>
+
+    <!-- ABOUT & CV SECTION -->
+    <section id="about" class="py-20 bg-slate-50 border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        
+        <div class="text-center max-w-3xl mx-auto space-y-3">
+          <span class="text-sky-600 text-xs font-bold tracking-widest uppercase">Academic Background & Philosophy</span>
+          <h2 class="font-display text-4xl sm:text-5xl font-bold uppercase text-slate-900 tracking-wide">CV + About</h2>
+          <div class="w-16 h-1 bg-sky-500 mx-auto"></div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          
+          <!-- Bio & Philosophy -->
+          <div class="lg:col-span-7 space-y-6">
+            <div class="academic-card p-8 rounded-lg space-y-4">
+              <h3 class="font-display text-2xl font-bold uppercase text-slate-900 border-b pb-3 border-slate-100">
+                Academic Biography
+              </h3>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                I am an MTech scholar in Biotechnology at the <strong>Indian Institute of Technology Guwahati (IIT Guwahati)</strong>. My primary research revolves around sustainable agricultural technologies, bio-formulations, and ecological restoration in dryland ecosystems.
+              </p>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                Having completed my B.Tech in Biotechnology from <strong>National Institute of Technology Agartala (NIT Agartala)</strong> and qualifying <strong>GATE Biotechnology 2025</strong>, my work integrates Plant Growth-Promoting Rhizobacteria (PGPR), functional hydrogel matrices, and computational biology to solve environmental stress challenges.
+              </p>
+              <p class="text-sm text-slate-600 leading-relaxed">
+                Outside the laboratory, I cultivate an active interest in British literature, creative writing, world languages (Japanese A1/A2, German, Mandarin, and native Kokborok verification work), and personal health discipline.
+              </p>
+            </div>
+
+            <!-- Key Milestones -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              <div class="academic-card p-4 rounded text-center">
+                <div class="font-display text-2xl font-bold text-sky-600">2025–27</div>
+                <div class="text-[11px] font-bold uppercase tracking-wider text-slate-500 mt-1">MTech @ IITG</div>
+              </div>
+              <div class="academic-card p-4 rounded text-center">
+                <div class="font-display text-2xl font-bold text-slate-900">GATE '25</div>
+                <div class="text-[11px] font-bold uppercase tracking-wider text-slate-500 mt-1">Biotech Rank</div>
+              </div>
+              <div class="academic-card p-4 rounded text-center">
+                <div class="font-display text-2xl font-bold text-sky-600">2021–25</div>
+                <div class="text-[11px] font-bold uppercase tracking-wider text-slate-500 mt-1">BTech @ NITA</div>
+              </div>
+              <div class="academic-card p-4 rounded text-center">
+                <div class="font-display text-2xl font-bold text-slate-900">4 Langs</div>
+                <div class="text-[11px] font-bold uppercase tracking-wider text-slate-500 mt-1">Linguistic Study</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Academic Trajectory Timeline -->
+          <div class="lg:col-span-5">
+            <div class="academic-card p-8 rounded-lg space-y-6">
+              <h3 class="font-display text-2xl font-bold uppercase text-slate-900 border-b pb-3 border-slate-100 flex justify-between items-center">
+                <span>Education</span>
+                <i class="fa-solid fa-graduation-cap text-sky-600 text-lg"></i>
+              </h3>
+
+              <div class="space-y-6 relative border-l-2 border-slate-200 pl-6 ml-2">
+                
+                <!-- Item 1 -->
+                <div class="relative">
+                  <div class="absolute -left-[31px] top-1 w-3.5 h-3.5 rounded-full bg-sky-600 border-2 border-white"></div>
+                  <div class="text-xs font-bold text-sky-600 uppercase tracking-wider">2025 – 2027 (Ongoing)</div>
+                  <div class="font-bold text-slate-900 text-base mt-0.5">M.Tech in Biotechnology</div>
+                  <div class="text-xs font-semibold text-slate-500">Indian Institute of Technology, Guwahati</div>
+                  <p class="text-xs text-slate-600 mt-2">Specializing in dryland afforestation hydrogels, PGPR, and biostimulants under faculty mentorship.</p>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="relative">
+                  <div class="absolute -left-[31px] top-1 w-3.5 h-3.5 rounded-full bg-slate-800 border-2 border-white"></div>
+                  <div class="text-xs font-bold text-slate-500 uppercase tracking-wider">2021 – 2025</div>
+                  <div class="font-bold text-slate-900 text-base mt-0.5">B.Tech in Biotechnology</div>
+                  <div class="text-xs font-semibold text-slate-500">National Institute of Technology, Agartala</div>
+                  <p class="text-xs text-slate-600 mt-2">Comprehensive coursework in molecular biology, tissue culture, and bioprocess engineering. GATE 2025 Qualified.</p>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="relative">
+                  <div class="absolute -left-[31px] top-1 w-3.5 h-3.5 rounded-full bg-slate-400 border-2 border-white"></div>
+                  <div class="text-xs font-bold text-slate-400 uppercase tracking-wider">Completed 2021</div>
+                  <div class="font-bold text-slate-900 text-base mt-0.5">Higher Secondary (K-12)</div>
+                  <div class="text-xs font-semibold text-slate-500">Holy Cross School, Agartala</div>
+                  <p class="text-xs text-slate-600 mt-1">Distinction in Natural Sciences and Mathematics.</p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ONGOING RESEARCH SECTION (LAYOUT MATCHING REFERENCE ITEM 1, 2 IMAGE CARDS) -->
+    <section id="research" class="py-20 bg-white border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        
+        <div class="text-center max-w-3xl mx-auto space-y-3">
+          <span class="text-sky-600 text-xs font-bold tracking-widest uppercase">Laboratory & Fieldwork Initiatives</span>
+          <h2 class="font-display text-4xl sm:text-5xl font-bold uppercase text-slate-900 tracking-wide">Ongoing Research</h2>
+          <div class="w-16 h-1 bg-sky-500 mx-auto"></div>
+        </div>
+
+        <div class="space-y-12">
+          
+          <!-- Research Project 1 -->
+          <div class="academic-card rounded-lg overflow-hidden grid grid-cols-1 md:grid-cols-12 gap-0">
+            <div class="md:col-span-7 p-8 sm:p-10 flex flex-col justify-between space-y-4">
+              <div class="space-y-3">
+                <span class="text-xs font-bold tracking-widest uppercase text-sky-600">Project 01 • Dryland Afforestation</span>
+                <h3 class="font-display text-2xl sm:text-3xl font-bold uppercase text-slate-900 leading-tight">
+                  1. Hydrogel Matrix Formulations & PGPR Biostimulants for Dryland Survival
+                </h3>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                  Hydrogel-assisted dryland afforestation is a crucial biotechnological intervention for restoring degraded soils in semi-arid environments. My research focuses on synthesizing swellable hydrogel matrices embedded with Plant Growth-Promoting Rhizobacteria (PGPR) and biostimulants to improve soil moisture retention and seed germination under water-deficit stress.
+                </p>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                  These bio-formulations provide a sustained-release micro-environment for microbial survival, assisting root colonization and nutrient availability during critical early establishment phases.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-2 pt-2">
+                <span class="px-2.5 py-1 bg-slate-100 text-slate-700 text-xs font-semibold uppercase tracking-wider rounded">Hydrogel Synthesis</span>
+                <span class="px-2.5 py-1 bg-slate-100 text-slate-700 text-xs font-semibold uppercase tracking-wider rounded">PGPR Inoculation</span>
+                <span class="px-2.5 py-1 bg-slate-100 text-slate-700 text-xs font-semibold uppercase tracking-wider rounded">Soil Moisture Retention</span>
+              </div>
+            </div>
+            <!-- Research Image Column -->
+            <div class="md:col-span-5 bg-slate-100 relative min-h-[280px]">
+              <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=1000&q=80" 
+                   alt="Plant growth biostimulants and hydrogel research" 
+                   class="w-full h-full object-cover">
+              <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950/80 to-transparent p-4 text-white text-xs font-medium">
+                Soil matrix evaluation & plant growth assay testing
+              </div>
+            </div>
+          </div>
+
+          <!-- Research Project 2 -->
+          <div class="academic-card rounded-lg overflow-hidden grid grid-cols-1 md:grid-cols-12 gap-0">
+            <!-- Research Image Column (Left on Desktop) -->
+            <div class="md:col-span-5 bg-slate-100 relative min-h-[280px] order-2 md:order-1">
+              <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=1000&q=80" 
+                   alt="Microbial culture and laboratory assays" 
+                   class="w-full h-full object-cover">
+              <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950/80 to-transparent p-4 text-white text-xs font-medium">
+                Bio-fertilizer isolation & rhizobacteria screening
+              </div>
+            </div>
+            <div class="md:col-span-7 p-8 sm:p-10 flex flex-col justify-between space-y-4 order-1 md:order-2">
+              <div class="space-y-3">
+                <span class="text-xs font-bold tracking-widest uppercase text-sky-600">Project 02 • Applied Microbiology</span>
+                <h3 class="font-display text-2xl sm:text-3xl font-bold uppercase text-slate-900 leading-tight">
+                  2. Plant-Microbe Interaction Assays & Bio-Evaluation
+                </h3>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                  Assessing beneficial bacterial isolates for nitrogen fixation, phosphate solubilization, and siderophore production. By combining microbiological screening with greenhouse bio-evaluations, we quantify plant biomass accumulation, root architecture modulation, and abiotic stress mitigation.
+                </p>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                  These evaluations help develop robust, eco-friendly bio-fertilizers tailored for degraded soil restoration across Northeast India.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-2 pt-2">
+                <span class="px-2.5 py-1 bg-slate-100 text-slate-700 text-xs font-semibold uppercase tracking-wider rounded">Phosphate Solubilization</span>
+                <span class="px-2.5 py-1 bg-slate-100 text-slate-700 text-xs font-semibold uppercase tracking-wider rounded">Bio-Assays</span>
+                <span class="px-2.5 py-1 bg-slate-100 text-slate-700 text-xs font-semibold uppercase tracking-wider rounded">Ecology</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Research Project 3 -->
+          <div class="academic-card rounded-lg overflow-hidden grid grid-cols-1 md:grid-cols-12 gap-0">
+            <div class="md:col-span-7 p-8 sm:p-10 flex flex-col justify-between space-y-4">
+              <div class="space-y-3">
+                <span class="text-xs font-bold tracking-widest uppercase text-sky-600">Project 03 • Computational Biology</span>
+                <h3 class="font-display text-2xl sm:text-3xl font-bold uppercase text-slate-900 leading-tight">
+                  3. Computational Protein Homology Modeling & Structural Analyses
+                </h3>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                  Utilizing bioinformatics software pipelines including MODELLER and structural analysis tools to perform protein homology modeling and molecular docking. This computational arm complements our experimental wet-lab assays by predicting key enzyme interactions involved in stress response pathways.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-2 pt-2">
+                <span class="px-2.5 py-1 bg-slate-100 text-slate-700 text-xs font-semibold uppercase tracking-wider rounded">MODELLER</span>
+                <span class="px-2.5 py-1 bg-slate-100 text-slate-700 text-xs font-semibold uppercase tracking-wider rounded">Molecular Docking</span>
+                <span class="px-2.5 py-1 bg-slate-100 text-slate-700 text-xs font-semibold uppercase tracking-wider rounded">Bioinformatics</span>
+              </div>
+            </div>
+            <div class="md:col-span-5 bg-slate-100 relative min-h-[280px]">
+              <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=1000&q=80" 
+                   alt="Computational protein docking and structural bioinformatics" 
+                   class="w-full h-full object-cover">
+              <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950/80 to-transparent p-4 text-white text-xs font-medium">
+                Protein structure prediction & docking visualization
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- PUBLICATIONS, PRESENTATIONS & MILESTONES -->
+    <section id="milestones" class="py-20 bg-slate-50 border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        
+        <div class="text-center max-w-3xl mx-auto space-y-3">
+          <span class="text-sky-600 text-xs font-bold tracking-widest uppercase">Academic Output & Certifications</span>
+          <h2 class="font-display text-4xl sm:text-5xl font-bold uppercase text-slate-900 tracking-wide">Publications & Milestones</h2>
+          <div class="w-16 h-1 bg-sky-500 mx-auto"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Item 1 -->
+          <div class="academic-card p-6 rounded-lg space-y-4 border-t-4 border-t-sky-500">
+            <div class="flex justify-between items-start text-xs font-bold uppercase tracking-wider text-slate-400">
+              <span>Symposium Presentation</span>
+              <span class="text-sky-600">Feb 2026</span>
+            </div>
+            <h3 class="font-display text-xl font-bold uppercase text-slate-900">
+              Oral Paper Presentation on Rice Research
+            </h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Delivered oral paper presentation on agricultural research and crop at a national academic symposium during postgraduate studies.
+            </p>
+            <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider pt-2 border-t border-slate-100">
+              <i class="fa-solid fa-chalkboard-user mr-1 text-sky-600"></i> Agricultural Biotechnology
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="academic-card p-6 rounded-lg space-y-4 border-t-4 border-t-slate-800">
+            <div class="flex justify-between items-start text-xs font-bold uppercase tracking-wider text-slate-400">
+              <span>Global Program</span>
+              <span class="text-sky-600">2026</span>
+            </div>
+            <h3 class="font-display text-xl font-bold uppercase text-slate-900">
+              Global Classrooms Initiative (GCI) World Data Science
+            </h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Selected participant for the World Data Science Program (Global Classrooms Initiative) associated with <strong>The University of Tokyo</strong>, building biological data science skills.
+            </p>
+            <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider pt-2 border-t border-slate-100">
+              <i class="fa-solid fa-globe mr-1 text-sky-600"></i> The University of Tokyo
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="academic-card p-6 rounded-lg space-y-4 border-t-4 border-t-sky-500">
+            <div class="flex justify-between items-start text-xs font-bold uppercase tracking-wider text-slate-400">
+              <span>Professional Training</span>
+              <span class="text-sky-600">2026</span>
+            </div>
+            <h3 class="font-display text-xl font-bold uppercase text-slate-900">
+              Advanced GMP Workshop in Biotechnology
+            </h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Completed professional workshop in Good Manufacturing Practices (GMP) for bioprocess development, biological safety standards, and industrial compliance.
+            </p>
+            <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider pt-2 border-t border-slate-100">
+              <i class="fa-solid fa-certificate mr-1 text-sky-600"></i> Industrial Biotech Standards
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- TRAVELS, PERSPECTIVES & CULTURAL ENGAGEMENT -->
+    <section id="travels" class="py-20 bg-white border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        
+        <div class="text-center max-w-3xl mx-auto space-y-3">
+          <span class="text-sky-600 text-xs font-bold tracking-widest uppercase">Exploration & Humanities</span>
+          <h2 class="font-display text-4xl sm:text-5xl font-bold uppercase text-slate-900 tracking-wide">Travels & Perspectives</h2>
+          <div class="w-16 h-1 bg-sky-500 mx-auto"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Card 1 -->
+          <div class="academic-card rounded-lg overflow-hidden flex flex-col justify-between">
+            <div>
+              <div class="h-48 bg-slate-200 overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80" 
+                     alt="Hills and landscape of Meghalaya and Northeast India" 
+                     class="w-full h-full object-cover">
+                <span class="absolute top-3 left-3 bg-slate-950/80 text-white text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded">Northeast Exploration</span>
+              </div>
+              <div class="p-6 space-y-3">
+                <h3 class="font-display text-xl font-bold uppercase text-slate-900">Backpacking Northeast India</h3>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                  Travels across Meghalaya (Shillong), Nagaland (Dimapur & Kohima), Mizoram (Aizawl & Champhai), and the hills of Northeast India. Engaging directly with local ecosystems and traditional land-use practices.
+                </p>
+              </div>
+            </div>
+            <div class="px-6 pb-6 text-xs font-bold text-sky-600 uppercase tracking-wider">
+              Shillong • Kohima • Aizawl
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="academic-card rounded-lg overflow-hidden flex flex-col justify-between">
+            <div>
+              <div class="h-48 bg-slate-200 overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=800&q=80" 
+                     alt="Books, literature, and writing" 
+                     class="w-full h-full object-cover">
+                <span class="absolute top-3 left-3 bg-slate-950/80 text-white text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded">Literature & Creative Writing</span>
+              </div>
+              <div class="p-6 space-y-3">
+                <h3 class="font-display text-xl font-bold uppercase text-slate-900">British Literature & World-Building</h3>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                  Avid reader of classical British literature, world history, and creative fiction. Writing essays and narrative world-building exercises during personal study hours.
+                </p>
+              </div>
+            </div>
+            <div class="px-6 pb-6 text-xs font-bold text-sky-600 uppercase tracking-wider">
+              Humanities • World Literature
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="academic-card rounded-lg overflow-hidden flex flex-col justify-between">
+            <div>
+              <div class="h-48 bg-slate-200 overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1528164344705-47542687990d?auto=format&fit=crop&w=800&q=80" 
+                     alt="Asian architecture and language studies" 
+                     class="w-full h-full object-cover">
+                <span class="absolute top-3 left-3 bg-slate-950/80 text-white text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded">Linguistic Studies</span>
+              </div>
+              <div class="p-6 space-y-3">
+                <h3 class="font-display text-xl font-bold uppercase text-slate-900">Multilingual Acquisition</h3>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                  Pursuing language study across Japanese (A1 certified, preparing A2), German, and Mandarin to connect with international scientific literature and global collaborators.
+                </p>
+              </div>
+            </div>
+            <div class="px-6 pb-6 text-xs font-bold text-sky-600 uppercase tracking-wider">
+              Japanese A1/A2 • German • Mandarin
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- OUTREACH & MORAL RESPONSIBILITY -->
+    <section id="outreach" class="py-20 bg-slate-50 border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        
+        <div class="text-center max-w-3xl mx-auto space-y-3">
+          <span class="text-sky-600 text-xs font-bold tracking-widest uppercase">Community & Social Engagement</span>
+          <h2 class="font-display text-4xl sm:text-5xl font-bold uppercase text-slate-900 tracking-wide">Outreach & Responsibility</h2>
+          <div class="w-16 h-1 bg-sky-500 mx-auto"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Card 1 -->
+          <div class="academic-card p-6 rounded-lg space-y-4">
+            <div class="w-10 h-10 rounded bg-sky-100 text-sky-600 flex items-center justify-center text-lg font-bold">
+              <i class="fa-solid fa-language"></i>
+            </div>
+            <h3 class="font-display text-xl font-bold uppercase text-slate-900">
+              Kokborok Native Language Digital Verification
+            </h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Contracted native language verifier working to audit and validate Kokborok linguistic datasets, enabling digital inclusion and machine translation accuracy for indigenous languages.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="academic-card p-6 rounded-lg space-y-4">
+            <div class="w-10 h-10 rounded bg-slate-100 text-slate-800 flex items-center justify-center text-lg font-bold">
+              <i class="fa-solid fa-people-roof"></i>
+            </div>
+            <h3 class="font-display text-xl font-bold uppercase text-slate-900">
+              Forest Commons & Shifting Cultivation Dialogues
+            </h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Participating in community dialogues on shifting cultivation (Jhum), community forest stewardship, and ecological fire management systems in Tripura.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="academic-card p-6 rounded-lg space-y-4">
+            <div class="w-10 h-10 rounded bg-sky-100 text-sky-600 flex items-center justify-center text-lg font-bold">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h3 class="font-display text-xl font-bold uppercase text-slate-900">
+              AI Ethics & Environmental Fact-Checking
+            </h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Trained with Centre for Science and Environment (CSE) workshops on environmental fact-checking, scientific communication integrity, and responsible AI usage.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- MENTORS & GUIDANCE -->
+    <section id="mentors" class="py-16 bg-white border-b border-slate-200">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="academic-card p-8 sm:p-10 rounded-lg flex flex-col md:flex-row items-center gap-8 bg-gradient-to-r from-slate-900 to-slate-800 text-white border-none shadow-xl">
+          <div class="w-24 h-24 rounded-full bg-slate-700 border-2 border-sky-400 flex items-center justify-center text-3xl shrink-0 text-sky-300">
+            <i class="fa-solid fa-user-tie"></i>
+          </div>
+          <div class="space-y-2 text-center md:text-left">
+            <span class="text-sky-400 text-xs font-bold uppercase tracking-widest">Faculty Guidance</span>
+            <h3 class="font-display text-2xl sm:text-3xl font-bold uppercase tracking-wide">Research Mentorship under Prof. Lingaraj Sahoo</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-2xl">
+              Conducting active MTech thesis research under the guidance of <strong>Prof. Lingaraj Sahoo</strong> at the Department of Biosciences and Bioengineering, IIT Guwahati, along with guidance from past supervisor Dr. VC Padmanabhan at NIT Agartala.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- CONNECT & CONTACT FOOTER -->
+    <section id="contact" class="py-20 bg-slate-900 text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        
+        <div class="text-center max-w-3xl mx-auto space-y-3">
+          <span class="text-sky-400 text-xs font-bold tracking-widest uppercase">Academic Communication</span>
+          <h2 class="font-display text-4xl sm:text-5xl font-bold uppercase tracking-wide text-white">Connect</h2>
+          <div class="w-16 h-1 bg-sky-500 mx-auto"></div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          
+          <!-- Contact Info -->
+          <div class="lg:col-span-5 space-y-6">
+            <div class="space-y-4">
+              <h3 class="font-display text-2xl font-bold uppercase text-white">Get in Touch</h3>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Open to academic research collaborations, scientific inquiries, or discussions on bio-formulations, dryland afforestation, and computational biology.
+              </p>
+            </div>
+
+            <div class="space-y-3 text-xs">
+              <div class="p-4 bg-slate-800 rounded border border-slate-700 flex items-center gap-4">
+                <i class="fa-solid fa-envelope text-sky-400 text-xl"></i>
+                <div>
+                  <div class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Official Domain Email</div>
+                  <a href="mailto:contact@samwel.in" class="text-sm font-bold text-white hover:text-sky-400 transition-colors">contact@samwel.in</a>
+                </div>
+              </div>
+
+              <div class="p-4 bg-slate-800 rounded border border-slate-700 flex items-center gap-4">
+                <i class="fa-solid fa-location-dot text-sky-400 text-xl"></i>
+                <div>
+                  <div class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Academic Address</div>
+                  <div class="text-xs font-semibold text-white">Core 4, N-Block, Ground Floor, DST-funded Translational Crop Research Lab,  Dept. of Biosciences & Bioengineering, IIT Guwahati, Assam 781039</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Profiles Row -->
+            <div class="pt-2">
+              <div class="text-[10px] uppercase font-bold text-slate-400 tracking-wider mb-2">Research Profiles & Links</div>
+              <div class="flex space-x-3">
+                <a href="https://github.com/Samwel54" target="_blank" rel="noopener" aria-label="GitHub" class="w-10 h-10 rounded bg-slate-800 hover:bg-sky-500 hover:text-slate-950 text-slate-300 border border-slate-700 flex items-center justify-center transition-all text-base">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="mailto:contact@samwel.in" aria-label="Email" class="w-10 h-10 rounded bg-slate-800 hover:bg-sky-500 hover:text-slate-950 text-slate-300 border border-slate-700 flex items-center justify-center transition-all text-base">
+                  <i class="fa-solid fa-envelope"></i>
+                </a>
+                <a href="https://orcid.org" target="_blank" rel="noopener" aria-label="ORCID" class="w-10 h-10 rounded bg-slate-800 hover:bg-sky-500 hover:text-slate-950 text-slate-300 border border-slate-700 flex items-center justify-center transition-all text-base">
+                  <i class="fa-solid fa-id-badge"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Message Form -->
+          <div class="lg:col-span-7">
+            <form onsubmit="handleFormSubmit(event)" class="bg-slate-800 p-8 rounded-lg border border-slate-700 space-y-4">
+              <h3 class="font-display text-xl font-bold uppercase text-white mb-2">Send a Direct Message</h3>
+              
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-[10px] uppercase font-bold text-slate-400 tracking-wider mb-1">Your Name</label>
+                  <input type="text" required placeholder="Prof. Jane Doe" class="w-full px-3.5 py-2.5 rounded bg-slate-900 border border-slate-700 text-white text-xs focus:outline-none focus:border-sky-400">
+                </div>
+                <div>
+                  <label class="block text-[10px] uppercase font-bold text-slate-400 tracking-wider mb-1">Your Email</label>
+                  <input type="email" required placeholder="jane@university.edu" class="w-full px-3.5 py-2.5 rounded bg-slate-900 border border-slate-700 text-white text-xs focus:outline-none focus:border-sky-400">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-[10px] uppercase font-bold text-slate-400 tracking-wider mb-1">Subject</label>
+                <input type="text" required placeholder="Academic Query / Collaboration" class="w-full px-3.5 py-2.5 rounded bg-slate-900 border border-slate-700 text-white text-xs focus:outline-none focus:border-sky-400">
+              </div>
+
+              <div>
+                <label class="block text-[10px] uppercase font-bold text-slate-400 tracking-wider mb-1">Message</label>
+                <textarea rows="4" required placeholder="Type your message here..." class="w-full px-3.5 py-2.5 rounded bg-slate-900 border border-slate-700 text-white text-xs focus:outline-none focus:border-sky-400"></textarea>
+              </div>
+
+              <button type="submit" class="w-full py-3 rounded bg-sky-500 hover:bg-sky-600 text-slate-950 font-display font-bold text-sm tracking-wider uppercase transition-all shadow-md">
+                Send Communication
+              </button>
+            </form>
+
+            <div id="contact-success" class="hidden mt-4 p-4 rounded bg-sky-500/20 border border-sky-400 text-sky-300 text-xs text-center font-semibold">
+              Thank you! Message created. You can also directly email <span class="text-white">contact@samwel.in</span>.
+            </div>
+          </div>
+
+        </div>
+
+        <div class="pt-12 border-t border-slate-800 text-center text-xs text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <div>&copy; 2026 SAMWEL DEBBARMA. ALL RIGHTS RESERVED.</div>
+          <div class="space-x-4 uppercase font-bold tracking-wider">
+            <a href="#hero" class="hover:text-sky-400">Back To Top ↑</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL FOR CV SUMMARY -->
+  <div id="cv-modal" class="fixed inset-0 z-50 hidden bg-slate-950/85 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white max-w-xl w-full rounded-lg p-6 space-y-6 text-slate-900 relative shadow-2xl">
+      <button onclick="closeCvModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900 text-xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="border-b pb-3">
+        <h3 class="font-display text-2xl font-bold uppercase">Curriculum Vitae Summary</h3>
+        <p class="text-xs text-sky-600 font-bold uppercase tracking-wider">Samwel Debbarma • IIT Guwahati</p>
+      </div>
+
+      <div class="space-y-3 text-xs text-slate-600 max-h-64 overflow-y-auto pr-2">
+        <p><strong>Affiliation:</strong> M.Tech in Biotechnology, Department of Biosciences & Bioengineering, IIT Guwahati (2025–2027)</p>
+        <p><strong>Education:</strong> B.Tech in Biotechnology & Biochemical Engineering, Department of Bio Engineering in NIT Agartala (2021–2025) | GATE 2025 BT Qualified</p>
+        <p><strong>Primary Expertise:</strong> Plant tissue culture, Dryland afforestation, swellable hydrogels, PGPR bio-stimulants, bio-assays, MODELLER protein structure prediction.</p>
+        <p><strong>Certifications & Training:</strong> Univ. of Tokyo GCI World Data Science (2026) | Advanced GMP Workshop (2026)</p>
+        <p><strong>Languages:</strong> Japanese (A1/A2), German, Mandarin, Kokborok (Native Verifier)</p>
+      </div>
+
+      <div class="flex gap-3 pt-2">
+        <a href="mailto:contact@samwel.in?subject=Request%20Full%20Academic%20CV" class="flex-1 text-center py-2.5 rounded bg-sky-500 text-slate-950 font-display font-bold text-xs uppercase tracking-wider hover:bg-sky-600 transition-colors">
+          Request Full PDF CV
+        </a>
+        <button onclick="closeCvModal()" class="px-4 py-2.5 rounded bg-slate-200 text-slate-800 text-xs font-bold uppercase tracking-wider hover:bg-slate-300">
+          Close
+        </button>
+      </div>
+    </div>
   </div>
+
+  <!-- JAVASCRIPT FOR NAVIGATION AND INTERACTION -->
+  <script>
+    // Mobile Drawer Toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      if (mobileMenu.classList.contains('hidden')) {
+        menuIcon.className = 'fa-solid fa-bars text-2xl';
+      } else {
+        menuIcon.className = 'fa-solid fa-xmark text-2xl';
+      }
+    });
+
+    // Close menu when mobile links clicked
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuIcon.className = 'fa-solid fa-bars text-2xl';
+      });
+    });
+
+    // CV Modal Functions
+    function openCvModal() {
+      document.getElementById('cv-modal').classList.remove('hidden');
+    }
+
+    function closeCvModal() {
+      document.getElementById('cv-modal').classList.add('hidden');
+    }
+
+    // Contact Form Handler
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      document.getElementById('contact-success').classList.remove('hidden');
+      e.target.reset();
+      setTimeout(() => {
+        document.getElementById('contact-success').classList.add('hidden');
+      }, 6000);
+    }
+  </script>
 
 </body>
 </html>
+```
